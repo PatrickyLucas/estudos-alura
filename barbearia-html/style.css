@@ -51,24 +51,30 @@ body {
 }
 
 .titulo-principal {
-    display: inline-block;
+    background: #FFFFFF;
+    font-size: 35px;
+    font-weight: bold;
     text-align: center;    
     vertical-align: top;
-    width: 940px;
     margin: 0 auto;
     padding: 50px 0;
 }
 
 .titulo-centralizado {
-    text-align: center
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 p {
+    font-size: 15px;
     text-align: center
 }
 
 #missao {
-    font-size: 20px
+    font-size: 25px
 }
 
 em strong{
@@ -85,6 +91,7 @@ em strong{
 }
 
 ul {
+    font-size: 20px;
     display: inline-block;
     vertical-align: top;
     width: 20%;
