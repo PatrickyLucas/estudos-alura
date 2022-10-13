@@ -19,7 +19,7 @@ body {
 .cabecalho {
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: center;
     background-color: #15191C;
     padding: 8px 16px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
@@ -60,7 +60,7 @@ body {
     }
 
     .cabecalho__logo {
-        display: none;  
+        display: none;
     }
 
     .cabecalho__perfil {
@@ -82,13 +82,13 @@ body {
         background-image: url(../img/profile_2.png);
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center;        
+        background-position: center;
     }
 
     .cabecalho__perfil::after {
         content: "\e90d";
         color: #FFFFFF;
-        font-size: 1.5rem;        
+        font-size: 1.5rem;
     }
 }
 
@@ -113,7 +113,6 @@ body {
     width: 118px;
     align-self: center;
     padding: 16px;
-        
 }
 
 .menu-lateral__link {
@@ -131,7 +130,7 @@ body {
 }
 
 .menu-lateral__link::before {
-    content: "";
+    content: "\e900";
     width: 24px;
     height: 24px;
     font-size: 24px;
@@ -197,11 +196,15 @@ body {
             "destaque-video destaque-video videos-recentes"
             "secao-videos secao-videos secao-videos"
             "produtos-recentes destaque-produtos destaque-produtos"
-            "secao-produtos secao-produtos secao-produtos"
+            "secao-produtos secao-produtos secao-produtos"       
         ;
         column-gap: 32px;
         padding: 16px 60px;
         grid-column: 2;
+    }
+
+    .titulo-secao {
+        grid-column: span 4;
     }
 }
 
@@ -210,6 +213,10 @@ body {
     border-radius: 15px;
     overflow: hidden;
     background-color: #2C343A;
+}
+
+.cartao__imagem--desktop {
+    display: none;
 }
 
 .cartao--destaque {
@@ -224,19 +231,19 @@ body {
 }
 
 .cartao__destaque {
-    grid-column:  span 2;
+    grid-column: span 2;
 }
 
 .cartao__titulo {
     font-size: 1.2rem;
     font-weight: 700;
-    grid-column:  span 2;
+    grid-column: span 2;
 }
 
 .cartao__perfil {
     color: #95999C;
     font-size: 0.9rem;
-    grid-column:  span 2;
+    grid-column: span 2;
 }
 
 .cartao__info {
@@ -247,12 +254,12 @@ body {
 
 .cartao__info--tempo::before {
     content: "\e90c";
-    margin-right: 8px;
+    margin-right: 8px;    
 }
 
 .cartao__info--visualizacao::before {
     content: "\e90f";
-    margin-right: 8px;
+    margin-right: 8px;    
 }
 
 .cartao__botao {
@@ -274,7 +281,7 @@ body {
 
 .cartao__botao--destaque {
     width: 100%;
-    grid-column:  span 2;
+    grid-column: span 2;
 }
 
 .cartao__botao--destaque::before {
@@ -286,6 +293,23 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
+    .cartao--destaque {
+        margin-bottom: 0;
+    }
+
+    .cartao__imagem--mobile {
+        display: none;
+    }
+
+    .cartao__imagem--desktop {
+        display: block;
+    }
+
+    .cartao__botao--destaque {
+        grid-column: auto;
+        padding: 16px 8px;
+    }
+
     .cartao--recentes {
         display: grid;
         grid-template-columns: auto auto;
@@ -293,7 +317,8 @@ body {
         row-gap: 24px;
         width: 256px;
         padding: 16px;
-        box-sizing: border-box;        
+        box-sizing: border-box;
+        align-self: flex-start;
     }
 
     .cartao--recentes .cartao__titulo {
@@ -306,7 +331,7 @@ body {
         color: #0480DC;
         justify-self: flex-end;
     }
-
+    
     .cartao__lista {
         display: grid;
         row-gap: 16px;
@@ -317,7 +342,7 @@ body {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 8px;
-    } 
+    }
 
     .cartao__item-thumbnail {
         width: 32px;
@@ -334,7 +359,6 @@ body {
         font-size: 0.8rem;
         color: #95999C;
     }
-
 }
 
 .secao {
@@ -342,26 +366,32 @@ body {
     gap: 16px;
 }
 
-.destaque-video {
-    grid-area: destaque-video;
-}
+@media screen and (min-width: 1440px) {
+    .secao {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
-.videos-recentes {
-    grid-area: videos-recentes;
-}
-
-.secao-videos {
-    grid-area: secao-videos;
-}
-
-.destaque-produtos {
-    grid-area: destaque-produtos;
-}
-
-.produtos-recentes {
-    grid-area: produtos-recentes;
-}
-
-.secao-produtos {
-    grid-area: secao-produtos;
+    .destaque-video {
+        grid-area: destaque-video;
+    }
+    
+    .videos-recentes {
+        grid-area: videos-recentes;
+    }
+    
+    .secao-videos {
+        grid-area: secao-videos;
+    }
+    
+    .destaque-produtos {
+        grid-area: destaque-produtos;
+    }
+    
+    .produtos-recentes {
+        grid-area: produtos-recentes;
+    }
+    
+    .secao-produtos {
+        grid-area: secao-produtos;
+    }
 }
